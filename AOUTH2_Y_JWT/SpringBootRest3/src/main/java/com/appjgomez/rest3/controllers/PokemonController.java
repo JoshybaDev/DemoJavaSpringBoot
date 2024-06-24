@@ -6,6 +6,7 @@ package com.appjgomez.rest3.controllers;
 
 import com.appjgomez.rest3.entities.Pokemon;
 import com.appjgomez.rest3.entities.PokemonResponse;
+import com.appjgomez.rest3.utils.LogColor;
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -35,7 +36,7 @@ public class PokemonController {
         }
         String url = "https://pokeapi.co/api/v2/pokemon/" + name;
         //System.out.println("========================> GET POINT ==> /api/v1/pokemon/" + name);
-        System.out.println("========================> " + url);
+        LogColor.i("PokemonController","========================> " + url);
         RestTemplate restTemplate = new RestTemplate();
         Object Data = restTemplate.getForObject(url, Object.class);
         return ResponseEntity.ok(Data);
@@ -53,7 +54,7 @@ public class PokemonController {
         }
         String url = "https://pokeapi.co/api/v2/pokemon/" + name;
         //System.out.println("========================> GET POINT ==> /api/v1/pokemon/alldata/" + name);
-        System.out.println("========================> " + url);
+        LogColor.i("PokemonController","========================> " + url);
         RestTemplate restTemplate = new RestTemplate();
         Object Data = restTemplate.getForObject(url, Object.class);
         ObjectMapper mapper = new ObjectMapper();
@@ -75,7 +76,7 @@ public class PokemonController {
         }
         String url = "https://pokeapi.co/api/v2/pokemon/" + name;
         //System.out.println("========================> GET POINT ==> /api/v1/pokemon/mindata/" + name);
-        System.out.println("========================> " + url);
+        LogColor.i("PokemonController","========================> " + url);
         RestTemplate restTemplate = new RestTemplate();
         Object Data = restTemplate.getForObject(url, Object.class);
         ObjectMapper mapper = new ObjectMapper();

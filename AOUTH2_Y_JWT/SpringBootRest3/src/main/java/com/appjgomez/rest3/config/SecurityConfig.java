@@ -28,6 +28,8 @@ public class SecurityConfig {
                 .requestMatchers(HttpMethod.GET, "/api/v1/security/authorized").permitAll() //client
                 .requestMatchers(HttpMethod.GET, "/api/v1/users").hasAnyAuthority("SCOPE_read", "SCOPE_write") //resource Server
                 .requestMatchers(HttpMethod.POST, "/api/v1/users").hasAuthority("SCOPE_write") //resource Server
+                //.requestMatchers(HttpMethod.POST, "/api/v1/products").hasAuthority("SCOPE_write") //resource Server
+                //.requestMatchers(HttpMethod.POST, "/api/v1/makers").hasAuthority("SCOPE_write") //resource Server
                 .anyRequest().authenticated())
                 .csrf(csrf -> csrf.disable())
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))

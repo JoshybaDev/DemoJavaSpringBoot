@@ -7,6 +7,7 @@ package com.appjgomez.rest3.controllers;
 import com.appjgomez.rest3.controllers.dto.MakerDTO;
 import com.appjgomez.rest3.entities.Maker;
 import com.appjgomez.rest3.service.IMakerService;
+import com.appjgomez.rest3.utils.LogColor;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.List;
@@ -62,6 +63,9 @@ public class MakerController {
 
     @PostMapping
     public ResponseEntity<?> save(@RequestBody MakerDTO makerDTO) throws URISyntaxException {
+        
+        LogColor.i("MakerController","========================> " + "Maker -> Save");
+        LogColor.i("MakerController","=============> " + makerDTO);        
         if (makerDTO.getName().isBlank()) {
             return ResponseEntity.badRequest().build();
         }

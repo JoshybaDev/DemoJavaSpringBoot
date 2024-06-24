@@ -7,6 +7,7 @@ package com.appjgomez.rest3.controllers;
 import com.appjgomez.rest3.controllers.dto.ProductDTO;
 import com.appjgomez.rest3.entities.Product;
 import com.appjgomez.rest3.service.IProductService;
+import com.appjgomez.rest3.utils.LogColor;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.List;
@@ -64,6 +65,9 @@ public class ProductController {
     
     @PostMapping
     public ResponseEntity<?> save(@RequestBody ProductDTO productDTO) throws URISyntaxException{
+
+        LogColor.i("ProductController","========================> " + "Product -> Save");
+        LogColor.i("ProductController","=============> " + productDTO);
         if(productDTO.getName().isBlank() || productDTO.getPrice() == null || productDTO.getMaker() == null){
             return ResponseEntity.badRequest().build();
         }

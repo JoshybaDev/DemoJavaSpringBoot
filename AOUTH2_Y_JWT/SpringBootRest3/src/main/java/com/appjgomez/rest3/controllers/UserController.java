@@ -86,8 +86,8 @@ public class UserController {
                 .lastName(userDTO.getLastName())
                 .email(userDTO.getEmail())
                 .build();
-        userService.save(user);
-        return ResponseEntity.created(new URI("api/v1/users/")).build();
+        long users_id=userService.save(user).getId();
+        return ResponseEntity.created(new URI("/api/v1/users/"+users_id)).build();
     }
 
     @PutMapping("/{id}")

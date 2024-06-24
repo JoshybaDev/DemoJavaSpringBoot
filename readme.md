@@ -10,6 +10,10 @@
 - Client_Id:oauth-client
 - Client_Secret:12345678
 
+### Test
+```
+C:\SpringBootRest3\>mvnw test -X
+```
 
 ### End-Points GET
 - http://localhost:8080/api/v1/users
@@ -60,7 +64,7 @@
 {
 	"name":"Monitor LCD 19",
 	"price":"236.25",
-	"maker_id":"100"
+	"maker":{"id":100}
 }
 
 ```
